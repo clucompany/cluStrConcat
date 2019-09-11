@@ -1,0 +1,17 @@
+[package]
+name = "cluStrConcat"
+version = "0.0.1"
+authors = ["Denis Kotlyarov (Денис Котляров) <denis2005991@gmail.com>"]
+repository = "https://github.com/clucompany/cluConstData.git"
+edition = "2018"
+
+license = "Apache-2.0"
+readme = "README.md"
+
+description = ""
+keywords = ["concat_string", "concat_str", "str", "cluStrConcat", "clucompany"]
+categories = ["development-tools"]
+
+[dependencies]
+cluConstData = "1.1.345"
+cluFullTransmute = "1.0.2"
