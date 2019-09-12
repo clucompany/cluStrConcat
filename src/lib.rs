@@ -15,18 +15,20 @@
 //#Ulin Project 1819
 
 #![allow(non_snake_case)]
+#![no_std]
+
+extern crate alloc;
 
 #[macro_use]
 mod macros {
 	#[macro_use]
 	mod str_concat;
 	pub use self::str_concat::*;
-	
-	#[macro_use]
-	mod string;
-	pub use self::string::*;
 }
 
 pub use self::macros::*;
+
+mod array_to_string;
+pub use self::array_to_string::*;
 
 //Expects stabilization.

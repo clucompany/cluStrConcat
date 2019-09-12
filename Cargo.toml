@@ -9,7 +9,7 @@ license = "Apache-2.0"
 readme = "README.md"
 
 description = ""
-keywords = ["concat_string", "concat_str", "str", "cluStrConcat", "clucompany"]
+keywords = ["concat_string", "concat_str", "str", "no-std", "cluStrConcat", "clucompany"]
 categories = ["development-tools"]
 
 [dependencies]
