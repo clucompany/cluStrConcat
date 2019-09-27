@@ -116,17 +116,17 @@ pub fn array_to_string<'l, A: ArrayString<'l>>(array: A) -> String where <A::Int
 	}
 	
 	unsafe {
-		raw_array_to_string(array, size)
+		__raw_array_to_string(array, size)
 	}
 }
 
 pub unsafe fn unsafe_array_to_string<'l, A: ArrayString<'l>>(array: A, capacity: usize) -> String where <A::IntoIter as Iterator>::Item :AsRef<str> {
-	raw_array_to_string(array, capacity)
+	__raw_array_to_string(array, capacity)
 }
 
 
 #[inline(always)]
-unsafe fn raw_array_to_string<'l, A: ArrayString<'l>>(array: A, capacity: usize) -> String  where <A::IntoIter as Iterator>::Item :AsRef<str> {
+unsafe fn __raw_array_to_string<'l, A: ArrayString<'l>>(array: A, capacity: usize) -> String  where <A::IntoIter as Iterator>::Item :AsRef<str> {
 	let mut vec = Vec::with_capacity(capacity);
 	
 	{
@@ -150,6 +150,7 @@ unsafe fn raw_array_to_string<'l, A: ArrayString<'l>>(array: A, capacity: usize)
 }
 
 
+
 #[derive(Debug, Clone)]
 pub struct MaybeArrayToString<'a, T> where T: ArrayString<'a>, <T::IntoIter as Iterator>::Item :AsRef<str> {
 	data: T, 
@@ -163,6 +164,16 @@ impl<'a, T> MaybeArrayToString<'a, T> where T: ArrayString<'a>, <T::IntoIter as 
 			data: a,
 			_pp: PhantomData,
 		}
+	}
+	
+	#[inline(always)]
+	pub fn data(self) -> T {
+		self.data
+	}
+	
+	#[inline(always)]
+	pub fn as_data(&self) -> &T {
+		&self.data	
 	}
 	
 	#[inline(always)]

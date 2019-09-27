@@ -13,5 +13,5 @@ keywords = ["concat_string", "concat_str", "str", "no-std", "cluStrConcat", "clu
 categories = ["development-tools"]
 
 [dependencies]
-cluConstData = "1.1.345"
+cluConstData = "1.2.9"
 cluFullTransmute = "1.0.2"

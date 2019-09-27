@@ -1,5 +1,5 @@
 
-pub extern crate cluConstData;
+extern crate cluConstData;
 
 /// A more advanced version of the concat macro from std, supports constants.
 ///```
@@ -14,12 +14,12 @@ pub extern crate cluConstData;
 macro_rules! str_concat {
 	[$e:expr] => ($e);
 	[$e:expr, $($a:expr),*] => {{
-		$crate::cluConstData::const_single_data!(&'static str = $e, $($a),*)
+		cluConstData::const_single_data!(&'static str = $e, $($a),*)
 	}};
 	
 	[@let $e:expr] => ($e);
 	[@let $e:expr, $($a:expr),*] => {{
-		$crate::cluConstData::let_single_data!(&'static str = $e, $($a),*)
+		cluConstData::let_single_data!(&'static str = $e, $($a),*)
 	}};
 }
 
